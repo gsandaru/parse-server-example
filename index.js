@@ -42,7 +42,7 @@ var dashboard = new ParseDashboard( {
       'pass': process.env.PARSE_DASHBOARD_ADMIN_PASSWORD || 'Qwas7856'
     }
   ]
-}, {allowInsecureHTTP: dashboard.allowInsecureHTTP} )
+}, {allowInsecureHTTP: true} )
 
 var app = express();
 
