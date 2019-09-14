@@ -33,7 +33,8 @@ var dashboard = new ParseDashboard( {
       'serverURL': 'https://parse-gihan-instance.herokuapp.com/parse/',
       'appName': 'MyApp',
       'appId': process.env.APP_ID || 'myAppId',
-      'masterKey': process.env.MASTER_KEY || '',
+      'masterKey': process.env.MASTER_KEY || '', 
+      "supportedPushLocales": ["en", "ru", "fr"]
     }
   ],
   'users': [
