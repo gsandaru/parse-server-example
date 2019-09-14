@@ -26,8 +26,7 @@ var api = new ParseServer({
 // If you wish you require them, you can set them as options in the initialization above:
 // javascriptKey, restAPIKey, dotNetKey, clientKey
 
-var dashboard = new ParseDashboard( {
-  "allowInsecureHTTP": true,
+var dashboard = new ParseDashboard( { 
   'apps': [
     {
       'serverURL': process.env.SERVER_URL || 'http://localhost:1337/parse',
