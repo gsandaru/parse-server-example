@@ -31,9 +31,9 @@ var dashboard = new ParseDashboard( {
   'apps': [
     {
       'serverURL': 'https://parse-gihan-instance.herokuapp.com/parse/',
-      'appName': process.env.APP_NAME || 'MyApp',
-      'appId': process.env.APP_ID || 'myAppId',
-      'masterKey': process.env.MASTER_KEY || '',
+      'appName': 'MyApp',
+      'appId': 'myAppId',
+      'masterKey':'masterkey',
     }
   ],
   'users': [
