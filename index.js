@@ -27,9 +27,10 @@ var api = new ParseServer({
 // javascriptKey, restAPIKey, dotNetKey, clientKey
 
 var dashboard = new ParseDashboard( { 
+  'allowInsecureHTTP': true,
   'apps': [
     {
-      'serverURL': process.env.SERVER_URL || 'http://localhost:1337/parse',
+      'serverURL': 'https://parse-gihan-instance.herokuapp.com/parse',
       'appName': process.env.APP_NAME || 'MyApp',
       'appId': process.env.APP_ID || 'myAppId',
       'masterKey': process.env.MASTER_KEY || 'myMasterKey',
