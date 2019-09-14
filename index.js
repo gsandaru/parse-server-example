@@ -31,7 +31,7 @@ var dashboard = new ParseDashboard( {
   'apps': [
     {
       'serverURL': 'http://localhost:1337/parse',
-      'appName': 'MyApp',
+      'appName': 'myAppId',
       'appId': process.env.APP_ID || 'myAppId',
       'masterKey': process.env.MASTER_KEY || '', 
       "supportedPushLocales": ["en", "ru", "fr"]
