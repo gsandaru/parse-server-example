@@ -32,14 +32,15 @@ var dashboard = new ParseDashboard( {
     {
       'serverURL': 'https://parse-gihan-instance.herokuapp.com/parse/',
       'appName': 'MyApp',
-      'appId': 'myAppId',
+      'appId': process.env.APP_ID || 'myAppId',
       'masterKey': process.env.MASTER_KEY || '',
     }
   ],
   'users': [
     {
       'user': process.env.PARSE_DASHBOARD_ADMIN_USERNAME || 'admin',
-      'pass': process.env.PARSE_DASHBOARD_ADMIN_PASSWORD || 'Qwas7856'
+      'pass': process.env.PARSE_DASHBOARD_ADMIN_PASSWORD || 'Qwas7856',
+      'apps': [{'appId': process.env.APP_ID || 'myAppId'}]
     }
   ]
 }, {allowInsecureHTTP: true} )
