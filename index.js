@@ -30,7 +30,7 @@ var dashboard = new ParseDashboard( {
   'allowInsecureHTTP': true,
   'apps': [
     {
-      'serverURL': 'https://parse-gihan-instance.herokuapp.com/parse',
+      'serverURL': 'http://localhost:1337/parse',
       'appName': process.env.APP_NAME || 'MyApp',
       'appId': process.env.APP_ID || 'myAppId',
       'masterKey': process.env.MASTER_KEY || 'myMasterKey',
@@ -42,7 +42,7 @@ var dashboard = new ParseDashboard( {
       'pass': process.env.PARSE_DASHBOARD_ADMIN_PASSWORD || 'Qwas7856'
     }
   ]
-}, true )
+}, {allowInsecureHTTP: dashboard.allowInsecureHTTP} )
 
 var app = express();
 
