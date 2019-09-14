@@ -2,6 +2,7 @@
 // compatible API routes.
 
 var express = require('express');
+var ParseDashboard = require( 'parse-dashboard' )
 var ParseServer = require('parse-server').ParseServer;
 var path = require('path');
 
@@ -25,6 +26,24 @@ var api = new ParseServer({
 // If you wish you require them, you can set them as options in the initialization above:
 // javascriptKey, restAPIKey, dotNetKey, clientKey
 
+var dashboard = new ParseDashboard( {
+  "allowInsecureHTTP": true,
+  'apps': [
+    {
+      'serverURL': process.env.SERVER_URL || 'http://localhost:1337/parse',
+      'appName': process.env.APP_NAME || 'MyApp',
+      'appId': process.env.APP_ID || 'myAppId',
+      'masterKey': process.env.MASTER_KEY || 'myMasterKey',
+    }
+  ],
+  'users': [
+    {
+      'user': process.env.PARSE_DASHBOARD_ADMIN_USERNAME || 'admin',
+      'pass': process.env.PARSE_DASHBOARD_ADMIN_PASSWORD || 'Qwas7856'
+    }
+  ]
+}, true )
+
 var app = express();
 
 // Serve static assets from the /public folder
@@ -33,10 +52,10 @@ app.use('/public', express.static(path.join(__dirname, '/public')));
 // Serve the Parse API on the /parse URL prefix
 var mountPath = process.env.PARSE_MOUNT || '/parse';
 app.use(mountPath, api);
-
+app.use('/dashboard', dashboard )
 // Parse Server plays nicely with the rest of your web routes
 app.get('/', function(req, res) {
-  res.status(200).send('I dream of being a website.  Please star the parse-server repo on GitHub!');
+  res.status(200).send('Server is UP and Running');
 });
 
 // There will be a test page available on the /test path of your server url
